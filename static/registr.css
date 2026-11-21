@@ -1,0 +1,94 @@
+/* Фон страницы */
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0a0a0f;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+/* Карточка */
+.card {
+    width: 100%;
+    max-width: 520px;
+    box-sizing: border-box;
+    padding: 40px;
+    background: #111218;
+    border: 1px solid #2a2c35;
+    border-radius: 28px;
+}
+
+/* Заголовок */
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin: 0 0 28px;
+}
+
+/* Блок «подпись + поле» */
+.field {
+    margin-bottom: 20px;
+}
+
+/* Подписи */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: #c9cbd3;
+}
+
+/* Поля ввода */
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 18px;
+    background: transparent;
+    border: 1.5px solid #4a4c57;
+    border-radius: 16px;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Когда нажал на поле, рамка становится синей */
+input:focus {
+    border-color: #3b82f6;
+}
+
+/* Кнопка */
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    background: transparent;
+    border: 3px solid #3b82f6;
+    border-radius: 999px;
+    color: #3b82f6;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Когда наводишь мышку, кнопка заливается синим */
+button:hover {
+    background: #3b82f6;
+    color: #ffffff;
+}
+
+/* Текст под карточкой */
+.bottom {
+    margin-top: 20px;
+    color: #9a9ca8;
+}
+
+.bottom a {
+    color: #3b82f6;
+    text-decoration: none;
+}
