@@ -10,26 +10,60 @@
    <div class="card">
     <h1>Вход</h1>
 
-    <form action="#" method="post">
+    <form action="/vxod2" method="post">
        <div class="field">
         <p>
             <label for="login">Логин</label><br>
-            <input type="text" id="login" name="login" placeholder="Введите логин" required>
+            <input type="text" id="login" name="login" placeholder="Введите логин" 
+            class="{{if .ErrorLog}}error{{end}}"
+            required>
+            {{if .ErrorLog}}
+                <p id="login-error" style="color: red;">{{.ErrorLog}}</p>
+            {{end}}
         </p>
        </div>
 
        <div class="field">
        <p>
             <label for="password">Пароль</label><br>
-            <input type="password" id="password" name="password" placeholder="Введите пароль" required><br>
+            <input type="password" id="password" name="password" placeholder="Введите пароль"
+            class="{{if .ErrorPass}}error{{end}}"
+            required><br>
+            {{if .ErrorPass}}
+                <p id="pass-error" style="color: red;">{{.ErrorPass}}</p>
+            {{end}}
+            
             <label>Забыли пароль?</label>
         </p>
        </div>
 
-        <button type="submit"><a href="vxod2.html"></a>Войти</button>
+        <button type="submit">Войти</button>
     </form>
     </div>
 
-    <p class="bottom">Нет аккаунта? <a href="registr.html">Регистрация</a></p>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginInput = document.getElementById("login");
+            const passInput = document.getElementById("password");
+
+            if (loginInput) {
+                loginInput.addEventListener("input", function () {
+                    loginInput.classList.remove("error");
+                    const err = document.getElementById("login-error");
+                    if (err) err.remove();
+                });
+            }
+
+            if (passInput) {
+                passInput.addEventListener("input", function () {
+                    passInput.classList.remove("error");
+                    const err = document.getElementById("pass-error");
+                    if (err) err.remove();
+                });
+            }
+        });
+    </script>
+
+    <p class="bottom">Нет аккаунта? <a href="/">Регистрация</a></p>
 </body>
 </html>

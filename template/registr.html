@@ -6,36 +6,77 @@
     <title>Регистрация</title>
     <link rel="stylesheet" href="registr.css">
 </head>
+
 <body>
     <div class="card">
         <h1>Регистрация</h1>
 
-        <form action="#" method="post">
+        <form action="/registr2" method="post">
             <div class="field">
-                <p>
                 <label for="login">Логин</label><br>
-                <input type="text" name="login" id="login" placeholder="Введите логин" required>
-                </p>
+                <input type="text" name="login" id="login" placeholder="Введите логин" 
+                value="{{.Login}}"
+                class="{{if .Error}}error{{end}}" required>
+                {{if .Error}}
+                    <p id="login-error" style="color: red;">{{.Error}}</p>
+                    
+                {{end}}
             </div>
 
             <div class="field">
-                <p>
                 <label for="password">Придумайте пароль</label><br>
-                <input type="password" name="password" id="password" placeholder="Придумайте пароль">
-                </p>
+                <input type="password" name="password" id="password" placeholder="Придумайте пароль" 
+                class="{{if .ErrorPass}}error{{end}}"
+                required>
+                {{if .ErrorPass}}
+                    <p id="pass-error" style="color: red;">{{.ErrorPass}}</p>
+                {{end}}
             </div>
 
             <div class="field">
-                <p>
+               
                 <label for="password2">Подтвердите пароль</label><br>
-                <input type="password" name="password2" id="password2" placeholder="Подтвердите пароль">
-                </p>
+                <input type="password" name="password2" id="password2" placeholder="Подтвердите пароль" 
+                class="{{if .ErrorPass}}error{{end}}"
+                required>
+                {{if .ErrorPass}}
+                    <p id="pass-error" style="color: red;">{{.ErrorPass}}</p>
+                {{end}}
+               
             </div>
 
             <button type="submit">Регистрация</button>
         </form>
     </div>
 
-    <p class="bottom">Уже есть аккаунт? <a href="vxod.html">Войти</a></p>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginInput = document.getElementById("login");
+            const pass1 = document.getElementById("password");
+            const pass2 = document.getElementById("password2");
+
+            if (loginInput) {
+                loginInput.addEventListener("input", function () {
+                    loginInput.classList.remove("error");
+                    const err = document.getElementById("login-error");
+                    if (err) err.remove();
+                });
+            }
+
+            function clearPassError() {
+                pass1.classList.remove("error");
+                pass2.classList.remove("error");
+                const err = document.getElementById("pass-error");
+                if (err) err.remove();
+            }
+
+            if (pass1 && pass2) {
+                pass1.addEventListener("input", clearPassError);
+                pass2.addEventListener("input", clearPassError);
+            }
+        });
+    </script>
+
+    <p class="bottom">Уже есть аккаунт? <a href="/vxod">Войти</a></p>
 </body>
 </html>
