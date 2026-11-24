@@ -1,0 +1,14 @@
+[
+    {
+        "ID": 1,
+        "Login": "21",
+        "Password": "21",
+        "ConfirmPassword": "21"
+    },
+    {
+        "ID": 2,
+        "Login": "321",
+        "Password": "12",
+        "ConfirmPassword": "12"
+    }
+]
