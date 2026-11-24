@@ -92,3 +92,9 @@ button:hover {
     color: #3b82f6;
     text-decoration: none;
 }
+
+
+.field input.error {
+    border: 2px solid red;
+    outline: none;
+}
